@@ -1,1 +1,1 @@
-# api-platform-crash-course
+# Products and Manufacturer API
