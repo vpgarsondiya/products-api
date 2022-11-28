@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Manufacturer index
+{% endblock %}
+
+{% block body %}
+	<h1>Manufacturer index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Description</th>
+				<th>CountryCode</th>
+				<th>ListedDate</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for manufacturer in manufacturers %}
+				<tr>
+					<td>{{ manufacturer.id }}</td>
+					<td>{{ manufacturer.name }}</td>
+					<td>{{ manufacturer.description }}</td>
+					<td>{{ manufacturer.countryCode }}</td>
+					<td>{{ manufacturer.listedDate ? manufacturer.listedDate|date('Y-m-d H:i:s') : '' }}</td>
+					<td>
+						<button type="button" class="btn btn-info">
+							<a href="{{ path('app_manufacturer_show', {'id': manufacturer.id}) }}">show</a>
+						</button>
+						<button type="button" class="btn btn-info">
+							<a href="{{ path('app_manufacturer_edit', {'id': manufacturer.id}) }}">edit</a>
+						</button>
+						<button type="button" class="btn btn-info">
+
+							<a href="{{ path('app_manufacturer_delete',{'id': manufacturer.id}) }}">Delete</a>
+						</button>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="6">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+<button type="button" class="btn btn-warning">
+	<a href="{{ path('app_manufacturer_new') }}">Create new</a>
+</button>
+
+{% endblock %}

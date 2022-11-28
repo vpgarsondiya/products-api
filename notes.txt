@@ -1,0 +1,53 @@
+========== api-tokens =============
+
+- session auth / key|token auth
+- get maker bundle
+- make:user
+- make:migration
+- create user records
+- create ApiToken entity
+- create api-token record
+
+========== ApiTokenAuthenticator =============
+
+- php bin/console make:auth
+
+========== Add auth to tests =============
+
+- symfony console --env=test doctrine:migrations:migrate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+========= testing ==========
+
+- symfony console --env=test doctrine:database:create
+
+- symfony console --env=test doctrine:migrations:migrate
+
+Alice: Used to generate fake fixture data
+Symfont Test Pack: Includes PHPUnit and PHPUnit Bridge
+HttpClient: ApiPlatform built on this
+JsonSchema: Provides Json Schema test assertion
+
+- composer require --dev alice symfony/test-pack symfony/http-client justinrainbow/json-schema
+
+- symfony console --env=test hautelook:fixtures:load
+
+- <env name="SYMFONY_DEPRECATIONS_HELPER" value="disabled" />
+
+- create ProductsTest
